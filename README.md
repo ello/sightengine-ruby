@@ -1,6 +1,6 @@
 <img src="http://d324imu86q1bqn.cloudfront.net/uploads/user/avatar/641/large_Ello.1000x1000.png" width="200px" height="200px" />
 
-# Stream Service Ruby Gem
+# Sightengine API Ruby Wrapper
 
 This gem provides a ruby API to the [Sightengine image moderation service](https://sightengine.com/).
 
