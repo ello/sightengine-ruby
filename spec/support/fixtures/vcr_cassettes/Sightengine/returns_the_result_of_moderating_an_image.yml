@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.sightengine.com/1.0/nudity.json?api_secret=<SIGHTENGINE_API_SECRET>&api_user=<SIGHTENGINE_API_USER>&url=https://unsplash.it/200/300?random
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - api.sightengine.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 01 Jul 2016 21:28:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '86400'
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","nudity":{"result":false,"confidence":78},"photo":"https:\/\/unsplash.it\/200\/300?random"}'
+    http_version: 
+  recorded_at: Fri, 01 Jul 2016 21:27:38 GMT
+recorded_with: VCR 3.0.3
