@@ -21,14 +21,14 @@ And then execute:
 
 ## Usage
 
+Before making any calls, you'll need to set your credentials using the `SIGHTENGINE_API_USER` and `SIGHTENGINE_API_SECRET` environment variables.
+
 The Sightengine API has one call - `moderate`, which [checks an image for nudity](https://sightengine.readme.io/docs/nudityjson) and returns an evaluation of it.
 
 ```ruby
   puts Sightengine.moderate('https://unsplash.it/200/300?random')
-  # {"status"=>"success", "nudity"=>{"result"=>false, "confidence"=>81}, "photo"=>"https://unsplash.it/200/300?random"}
+  #<struct Sightengine::Response status="success", nudity_result=false, nudity_confidence=66>
 ```
-
-You'll need to set your credentials using the `SIGHTENGINE_API_USER` and `SIGHTENGINE_API_SECRET` environment variables.
 
 ## Development
 

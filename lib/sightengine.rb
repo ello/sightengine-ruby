@@ -1,6 +1,7 @@
-require "sightengine/version"
+require 'sightengine/version'
 
 require 'net/http'
+require 'json'
 require 'forwardable'
 
 module Sightengine
@@ -20,6 +21,15 @@ module Sightengine
 
   def_delegators :client, :moderate
 
+  Response = Struct.new(:status, :nudity_result, :nudity_confidence) do
+
+    def self.from_json(json)
+      new(json['status'],
+          json.dig('nudity', 'result'),
+          json.dig('nudity', 'confidence'))
+    end
+  end
+
   class Client
     def initialize(service_uri, user, secret)
       @service_uri  = service_uri
@@ -28,7 +38,7 @@ module Sightengine
     end
 
     def moderate(url)
-      http_client(path: "/nudity.json", http_verb: 'GET', params: { url: url })
+      http_client(path: '/nudity.json', http_verb: 'GET', params: { url: url })
     end
 
     private
@@ -42,7 +52,7 @@ module Sightengine
       request.body = body
       request.add_field 'Accept', 'application/json'
       response = http.request(request)
-      JSON.parse(response.body)
+      Response.from_json(JSON.parse(response.body))
     end
 
     def create_request(verb)
