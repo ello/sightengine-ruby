@@ -22,7 +22,6 @@ module Sightengine
   def_delegators :client, :moderate
 
   Response = Struct.new(:status, :nudity_result, :nudity_confidence) do
-
     def self.from_json(json)
       new(json['status'],
           json.dig('nudity', 'result'),

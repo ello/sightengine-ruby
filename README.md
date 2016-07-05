@@ -11,7 +11,7 @@ This gem provides a ruby API to the [Sightengine image moderation service](https
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'sightengine-ruby', github: 'ello/sightengine-ruby', require: 'sightengine'
+gem 'sightengine-ruby'
 ```
 
 And then execute:
